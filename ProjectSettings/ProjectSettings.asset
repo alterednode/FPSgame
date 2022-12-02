@@ -145,7 +145,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.experimentalproj
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -674,7 +675,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   cloudProjectId: 8c94040b-20f5-441e-a4b3-e0d211e4bddc
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []

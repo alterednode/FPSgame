@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraRotation : MonoBehaviour
 
@@ -9,8 +10,8 @@ public class CameraRotation : MonoBehaviour
 	public GameManager gameManager;
 
     //for now, is a way to set custom sensitivity - later make so can also be changed through UI
-    public float mouseSensitvity = 1.0f;
-    public float verticalReduction = .5f;
+	public float mouseSensitvity = 1;
+	public float verticalReduction = 1f;
 
     
     public GameObject player;
@@ -25,9 +26,15 @@ public class CameraRotation : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
+	{
+    	
+	}
+    
+	public void updateCameraRotationSense(float newSense)
+	{
+		mouseSensitvity = newSense;
+	}
+	
 
     // Update is called once per frame
     void LateUpdate()
