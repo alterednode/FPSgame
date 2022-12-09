@@ -164,7 +164,7 @@ namespace UnityEngine.InputSystem.Samples.InGameHints
                 {
                     ""name"": """",
                     ""id"": ""e20635aa-ffe7-4ed9-8802-96c039d26a8f"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
