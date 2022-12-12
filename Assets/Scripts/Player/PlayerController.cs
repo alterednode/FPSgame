@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 	
 	public bool canPlayerJump;
 	
-	
+	public GameObject debugLine;
 	
 	
 	
@@ -49,19 +49,20 @@ public class PlayerController : MonoBehaviour
 		var look = m_Controls.gameplay.look.ReadValue<Vector2>();
 		var move = m_Controls.gameplay.move.ReadValue<Vector2>();
 	
-		// Update orientation first, then move. Otherwise move orientation will lag
-		// behind by one frame.
+		
 		Look(look);
-		playerCamera.transform.position = transform.position;
+		
+		//FindJumpableSurface();
 		
 		if(m_Controls.gameplay.Jump.triggered && canPlayerJump)
 		{
-			playerRb.AddForce(Vector3.up * jumpForce	, ForceMode.Impulse);
+			Jump();
 		}
 		
 		
 		Move(move);
 	}
+
 	
 	private void Move(Vector2 direction)
 	{
@@ -77,13 +78,123 @@ public class PlayerController : MonoBehaviour
 	
 	private void Look(Vector2 rotate)
 	{
+		
+		// update camera position
+		playerCamera.transform.position = transform.position;
+		
 		if (rotate.sqrMagnitude < 0.01)
 			return;
 		var scaledRotationSpeed =  rotateSpeed * Time.deltaTime;
 		m_Rotation.y += rotate.x * scaledRotationSpeed;
 		m_Rotation.x = Mathf.Clamp(m_Rotation.x - rotate.y * scaledRotationSpeed, -89, 89);
 		playerCamera.transform.localEulerAngles = m_Rotation;
+		
 	}
 	
+	//TODO: this can be triggered multiple times
+	private void Jump()
+	{
+		RaycastHit hit;
+		if (Physics.SphereCast(transform.position, .499f, Vector3.down, out hit, .5f))
+		{
+			float vertDeviation = Vector3.Angle(hit.normal, Vector3.up);
+			Debug.Log("Deviation: " + vertDeviation);
+			Instantiate(debugLine, hit.point, Quaternion.FromToRotation(Vector3.up,hit.normal));
+			playerRb.AddForce(hit.normal.normalized * jumpForce	, ForceMode.Impulse);
+			
+		}
+		
+	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

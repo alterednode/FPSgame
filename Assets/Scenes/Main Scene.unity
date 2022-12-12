@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88873310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: 1.01, z: 0}
+  m_LocalPosition: {x: -2.92, y: 0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 165248400}
@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 165248397}
   - component: {fileID: 165248401}
   - component: {fileID: 165248402}
+  - component: {fileID: 165248403}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -273,8 +274,9 @@ MonoBehaviour:
   playerCamera: {fileID: 768884522}
   moveSpeed: 10
   rotateSpeed: 60
-  jumpForce: 20
-  canPlayerJump: 0
+  jumpForce: 4
+  canPlayerJump: 1
+  debugLine: {fileID: 0}
 --- !u!54 &165248402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -291,6 +293,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &165248403
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165248396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.505
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &167628969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2313,13 +2328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1c8131749601547b1a72e7d75b47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 0
-  forward: 
-  backwards: 
-  left: 
-  right: 
-  jump: 
-  speed: 
 --- !u!1001 &7104573942141587971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2410,6 +2418,10 @@ PrefabInstance:
     - target: {fileID: 7104573942382610566, guid: 914fb3ce9bf06c84d93b1027e90f5e48, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104573942382610567, guid: 914fb3ce9bf06c84d93b1027e90f5e48, type: 3}
+      propertyPath: m_TagString
+      value: Jumpable
       objectReference: {fileID: 0}
     - target: {fileID: 7104573942382610567, guid: 914fb3ce9bf06c84d93b1027e90f5e48, type: 3}
       propertyPath: m_StaticEditorFlags
