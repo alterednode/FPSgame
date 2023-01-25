@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	
 	public bool canPlayerJump;
 	
+
 	public GameObject debugLine;
 	
 	
@@ -105,8 +106,10 @@ public class PlayerController : MonoBehaviour
 		}
 		
 	}
-
 	
+	private void ReloadSettings(){
+		m_Controls = new Controls();
+	}
 }
 
 
