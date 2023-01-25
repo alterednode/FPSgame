@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 	{
 	}
 	
-	public void Update()
+	public void FixedUpdate()
 	{
 		var look = m_Controls.gameplay.look.ReadValue<Vector2>();
 		var move = m_Controls.gameplay.move.ReadValue<Vector2>();
